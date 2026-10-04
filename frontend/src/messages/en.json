@@ -1,0 +1,276 @@
+{
+  "meta": {
+    "siteName": "Kaliningrad Auto",
+    "tagline": "Car rental in Kaliningrad",
+    "home": {
+      "title": "Car rental in Kaliningrad — wide choice of cars",
+      "description": "Car rental in Kaliningrad. Reliable service, great rates, delivery across the city and region. Office in the city center."
+    },
+    "cars": {
+      "title": "Cars for rent — catalog",
+      "description": "Catalog of cars for rent in Kaliningrad: economy, comfort, business, SUV, premium. Filter by brand, body, transmission, price."
+    },
+    "services": {
+      "title": "Services and rates — car rental in Kaliningrad",
+      "description": "Pick-up and return, delivery across the city and region. Rental rates and additional services."
+    },
+    "terms": {
+      "title": "Rental terms",
+      "description": "Age 23+, driving experience 3+ years. Documents: passport and driving license."
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "Contact us: +7 (996) 029-16-60, office in Kaliningrad on Generala Galitskogo st."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "cars": "Cars",
+    "services": "Services",
+    "terms": "Rental terms",
+    "contacts": "Contacts",
+    "book": "Book now"
+  },
+  "header": {
+    "phone": "+7 (996) 029-16-60",
+    "workHours": "Pick-up / return: 10:00 – 19:00",
+    "langRu": "RU",
+    "langEn": "EN"
+  },
+  "hero": {
+    "badge": "Office in the city center",
+    "title": "Car rental in Kaliningrad",
+    "subtitle": "Wide choice of cars for rent. Reliable service and great rates for a comfortable trip.",
+    "ctaPrimary": "Book now",
+    "ctaSecondary": "Call us",
+    "stats": {
+      "cars": "cars",
+      "clients": "happy clients",
+      "years": "years on the market",
+      "rating": "average rating"
+    }
+  },
+  "search": {
+    "title": "Find a car",
+    "subtitle": "We will match a car for you in seconds",
+    "pickupDate": "Pick-up date",
+    "returnDate": "Return date",
+    "pickupPlace": "Pick-up location",
+    "class": "Class",
+    "transmission": "Transmission",
+    "priceRange": "Price per day",
+    "anyClass": "Any class",
+    "anyTransmission": "Any",
+    "automatic": "Automatic",
+    "manual": "Manual",
+    "submit": "Search cars",
+    "reset": "Reset"
+  },
+  "filters": {
+    "title": "Filters",
+    "brand": "Brand",
+    "class": "Class",
+    "body": "Body",
+    "transmission": "Transmission",
+    "fuel": "Fuel",
+    "year": "Year",
+    "seats": "Seats",
+    "price": "Price per day",
+    "apply": "Apply",
+    "reset": "Reset all",
+    "sort": "Sort by",
+    "sortPopular": "Popular",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "found": "Found",
+    "nothing": "Nothing found. Try different filters."
+  },
+  "classes": {
+    "economy": "Economy",
+    "comfort": "Comfort",
+    "business": "Business",
+    "suv": "SUV",
+    "premium": "Premium",
+    "minivan": "Minivan"
+  },
+  "car": {
+    "perDay": "day",
+    "seats": "seats",
+    "doors": "doors",
+    "baggage": "baggage",
+    "body": "Body",
+    "transmission": "Transmission",
+    "fuel": "Fuel",
+    "year": "Year",
+    "book": "Book now",
+    "details": "Details",
+    "available": "Available",
+    "busy": "Busy"
+  },
+  "booking": {
+    "pageTitle": "Book a car",
+    "pageSubtitle": "Fill the form — we will call you back within 15 minutes.",
+    "title": "Leave a booking request",
+    "subtitle": "All fields except comment are required.",
+    "carLabel": "Car",
+    "perDayShort": "day",
+    "fields": {
+      "name": "Your name",
+      "phone": "Phone",
+      "startDate": "Rental start — date",
+      "startTime": "Time",
+      "endDate": "Rental end — date",
+      "endTime": "Time",
+      "comment": "Comment"
+    },
+    "placeholders": {
+      "name": "John",
+      "comment": "E.g.: child seat needed, delivery to the airport"
+    },
+    "summary": {
+      "days": "Days",
+      "total": "Total"
+    },
+    "submit": "Send request",
+    "policy": "By clicking the button you agree to personal data processing.",
+    "errors": {
+      "required": "Required field",
+      "name": "Enter a name (at least 2 characters)",
+      "phone": "Invalid phone — must be 9 to 20 digits",
+      "time": "Time format HH:MM (00:00 – 23:59)",
+      "comment": "Maximum 300 characters",
+      "endBeforeStart": "End date and time must be after start"
+    },
+    "success": {
+      "title": "Request sent!",
+      "text": "We will contact you within 15 minutes to confirm your booking.",
+      "again": "Send another request"
+    },
+    "bullets": {
+      "callback": "Call back within 15 minutes",
+      "noDeposit": "No deposit required",
+      "age": "Age 23+, driving experience 3+ years",
+      "insurance": "OSAGO included in the price"
+    }
+  },
+  "services": {
+    "title": "Services and rates",
+    "subtitle": "Pick-up and return, delivery across the city and region",
+    "pickupTitle": "Pick-up / return",
+    "workHours": "10:00 – 19:00",
+    "officePickup": "At the office — free",
+    "officeAddress": "Kaliningrad, Generala Galitskogo st., 36a, 2nd floor",
+    "nonWorking": "19:00 – 10:00 (Off hours)",
+    "delivery": {
+      "kaliningrad": "Kaliningrad",
+      "svetlogorsk": "Svetlogorsk",
+      "zelenogradsk": "Zelenogradsk",
+      "yantarny": "Yantarny",
+      "airport": "Khrabrovo airport"
+    },
+    "extendTitle": "Rental extension",
+    "extend": {
+      "upTo1h": "up to 1 hour — free",
+      "upTo6h": "up to 6 hours — 50% of daily rate",
+      "more6h": "over 6 hours — full daily rate"
+    },
+    "extraTitle": "Additional services",
+    "extra": {
+      "secondDriver": "Second driver",
+      "secondDriverNote": "for the whole rental period",
+      "carSwap": "Car swap",
+      "carSwapNote": "on request",
+      "childSeat": "Booster / child seat",
+      "childSeatNote": "free",
+      "washing": "Full car wash",
+      "washingNote": "if the car is returned dirty"
+    },
+    "items": {
+      "airport": {
+        "title": "Khrabrovo airport transfer",
+        "text": "We meet you with a sign, take you to the hotel or office. From 1 500 ₽."
+      },
+      "longTerm": {
+        "title": "Long-term rental",
+        "text": "From 30 days — with a discount. For companies and individuals."
+      },
+      "withDriver": {
+        "title": "Car with driver",
+        "text": "Experienced drivers, business trips, tours around the region."
+      },
+      "delivery": {
+        "title": "Delivery in Kaliningrad",
+        "text": "We deliver the car to your address within an hour."
+      },
+      "corporate": {
+        "title": "For corporate clients",
+        "text": "We work under contract, cashless payment, closing documents."
+      },
+      "support": {
+        "title": "24/7 support",
+        "text": "Always in touch. We replace the car in case of breakdown within a day."
+      }
+    }
+  },
+  "terms": {
+    "title": "Rental terms",
+    "subtitle": "Transparent rules, no surprises",
+    "items": {
+      "age": {
+        "title": "Age and experience",
+        "text": "Minimum age — 23 years. Driving experience — at least 3 years. Minimum rental period — one day."
+      },
+      "docs": {
+        "title": "Documents",
+        "text": "National passport and driving license valid in the Russian Federation."
+      },
+      "deposit": {
+        "title": "Deposit",
+        "text": "Deposit depends on the car class. Refunded on the return day if there is no damage."
+      },
+      "insurance": {
+        "title": "Insurance",
+        "text": "OSAGO included in the price. KASKO — optional."
+      },
+      "fuel": {
+        "title": "Fuel",
+        "text": "We hand over with a full tank, return with a full tank. Or pay the difference by receipt."
+      },
+      "return": {
+        "title": "Car return",
+        "text": "Return in the same condition. Full car wash — 1 000 ₽ if the car is returned dirty."
+      }
+    },
+    "cta": "Still have questions? Contact us"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "subtitle": "We are available every day from 10:00 to 19:00",
+    "phone": "Phone",
+    "address": "Office address",
+    "addressValue": "Kaliningrad region, Kaliningrad, Generala Galitskogo st., 36a, 3rd floor",
+    "email": "Email",
+    "hours": "Working hours",
+    "hoursValue": "Pick-up / return: 10:00 – 19:00. Off-hours delivery — by tariff.",
+    "mapTitle": "We are on the map",
+    "callUs": "Call us",
+    "writeUs": "Write us"
+  },
+  "footer": {
+    "about": "Car rental in Kaliningrad. Wide choice of cars, reliable service and great rates.",
+    "nav": "Navigation",
+    "contacts": "Contacts",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy policy",
+    "offer": "Public offer"
+  },
+  "common": {
+    "loading": "Loading...",
+    "more": "Learn more",
+    "all": "All",
+    "from": "from",
+    "currency": "₽",
+    "yes": "Yes",
+    "no": "No"
+  }
+}
