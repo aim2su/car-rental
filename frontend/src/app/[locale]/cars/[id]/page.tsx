@@ -177,7 +177,7 @@ export default async function CarDetailPage({
               <div className="mt-5 flex flex-col gap-2">
                 {car.available ? (
                   <Button asChild variant="primary" size="lg">
-                    <Link href={`/booking?car=${car.id}`}>Забронировать</Link>
+                    <Link href={{ pathname: "/booking", query: { car: car.id } }}>Забронировать</Link>
                   </Button>
                 ) : (
                   <Button variant="outline" size="lg" disabled>

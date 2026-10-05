@@ -29,7 +29,7 @@ export function BrandTicker() {
             className="flex items-center shrink-0 px-4 lg:px-8"
           >
             <Link
-              href={`/cars?brand=${encodeURIComponent(brand)}`}
+              href={{ pathname: "/cars", query: { brand } }}
               className="text-sm lg:text-xl font-extrabold tracking-tight text-white hover:text-primary-300 transition-colors whitespace-nowrap"
             >
               {brand}

@@ -32,7 +32,7 @@ export function SearchBar() {
     if (returnDate) params.set("to", returnDate);
     if (carClass !== "all") params.set("class", carClass);
     if (transmission !== "all") params.set("tr", transmission);
-    router.push(`/cars?${params.toString()}`);
+    router.push({ pathname: "/cars", query: Object.fromEntries(params) });
   }
 
   return (

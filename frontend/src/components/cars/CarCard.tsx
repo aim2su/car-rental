@@ -45,7 +45,7 @@ export function CarCard({ car }: { car: Car }) {
       )}
     >
       <Link
-        href={`/cars/${car.id}`}
+        href={{ pathname: "/cars/[id]", params: { id: car.id } }}
         className="relative block aspect-[16/10] overflow-hidden bg-muted shrink-0"
         aria-label={`${car.brand} ${car.model}`}
       >
@@ -87,7 +87,7 @@ export function CarCard({ car }: { car: Car }) {
       </Link>
 
       <div className="flex flex-1 flex-col p-5">
-        <Link href={`/cars/${car.id}`} className="group/title block">
+        <Link href={{ pathname: "/cars/[id]", params: { id: car.id } }} className="group/title block">
           <h3 className="text-lg font-extrabold text-foreground leading-tight tracking-tight group-hover/title:text-primary-800 transition-colors">
             {car.brand}{" "}
             <span className="font-semibold text-muted-foreground">{car.model}</span>
@@ -129,7 +129,7 @@ export function CarCard({ car }: { car: Car }) {
 
         <div className="mt-auto pt-6">
           <Link
-            href={`/cars/${car.id}`}
+            href={{ pathname: "/cars/[id]", params: { id: car.id } }}
             className={cn(
               buttonVariants({
                 variant: car.available ? "primary" : "outline",

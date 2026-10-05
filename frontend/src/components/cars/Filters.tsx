@@ -9,7 +9,7 @@ import { Checkbox } from "@/components/ui/Checkbox";
 import { Slider } from "@/components/ui/Slider";
 import { brands, priceBounds, yearBounds } from "@/lib/cars-data";
 import { formatPrice, cn } from "@/lib/utils";
-import type { BodyType, Transmission } from "@/types/car";
+import type { BodyType, CarClass, Transmission } from "@/types/car";
 
 const bodyTypeOptions: BodyType[] = [
   "suv",
@@ -45,6 +45,7 @@ const transmissionLabels: Record<Transmission, string> = {
 
 export type FiltersState = {
   brands: string[];
+  classes: CarClass[];
   bodyTypes: BodyType[];
   transmissions: Transmission[];
   yearMin: number;
@@ -55,6 +56,7 @@ export type FiltersState = {
 
 export const emptyFilters: FiltersState = {
   brands: [],
+  classes: [],
   bodyTypes: [],
   transmissions: [],
   yearMin: yearBounds.min,
@@ -92,7 +94,6 @@ export function Filters({
     setState({ ...emptyFilters, ...initial });
   }, [initial]);
 
-  // Если onClose передан — фильтры всегда видны (это мобильный режим)
   const isMobileSheet = Boolean(onClose);
   const showPanel = isMobileSheet || visible;
 
@@ -101,32 +102,36 @@ export function Filters({
   }
 
   function apply() {
-    const params = new URLSearchParams();
-    if (state.brands.length) params.set("brand", state.brands.join(","));
-    if (state.bodyTypes.length) params.set("body", state.bodyTypes.join(","));
-    if (state.transmissions.length) params.set("tr", state.transmissions.join(","));
-    if (state.yearMin > yearBounds.min) params.set("ymin", String(state.yearMin));
-    if (state.yearMax < yearBounds.max) params.set("ymax", String(state.yearMax));
-    if (state.priceMin > priceBounds.min) params.set("pmin", String(state.priceMin));
-    if (state.priceMax < priceBounds.max) params.set("pmax", String(state.priceMax));
-    const qs = params.toString();
-    router.push(qs ? `${pathname}?${qs}` : pathname);
+    const query: Record<string, string> = {};
+    if (state.brands.length) query.brand = state.brands.join(",");
+    if (state.classes.length) query.class = state.classes.join(",");
+    if (state.bodyTypes.length) query.body = state.bodyTypes.join(",");
+    if (state.transmissions.length) query.tr = state.transmissions.join(",");
+    if (state.yearMin > yearBounds.min) query.ymin = String(state.yearMin);
+    if (state.yearMax < yearBounds.max) query.ymax = String(state.yearMax);
+    if (state.priceMin > priceBounds.min) query.pmin = String(state.priceMin);
+    if (state.priceMax < priceBounds.max) query.pmax = String(state.priceMax);
+
+    router.push({
+      pathname: "/cars",
+      query,
+    });
     setOpen(null);
     onClose?.();
   }
 
   function reset() {
     setState(emptyFilters);
-    router.push(pathname);
+    router.push("/cars");
     setOpen(null);
   }
 
   function activeCount() {
     return (
       state.brands.length +
+      state.classes.length +
       state.bodyTypes.length +
       state.transmissions.length +
-      (state.yearMin > yearBounds.min || state.yearMax > yearBounds.min ? 0 : 0) +
       (state.yearMin > yearBounds.min || state.yearMax < yearBounds.max ? 1 : 0) +
       (state.priceMin > priceBounds.min || state.priceMax < priceBounds.max ? 1 : 0)
     );
@@ -136,7 +141,6 @@ export function Filters({
 
   return (
     <div className="space-y-2">
-      {/* ===== Ссылка «Показать / Скрыть фильтры» — только для десктопа (не в мобильном sheet) ===== */}
       {!isMobileSheet && (
         <button
           type="button"
@@ -150,18 +154,12 @@ export function Filters({
               {count}
             </span>
           )}
-          {visible ? (
-            <ChevronUp className="h-3.5 w-3.5" />
-          ) : (
-            <ChevronDown className="h-3.5 w-3.5" />
-          )}
+          {visible ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
         </button>
       )}
 
-      {/* ===== Сворачиваемая панель ===== */}
       {showPanel && (
         <div className="rounded-2xl border border-border bg-background shadow-card animate-in fade-in slide-in-from-top-1 duration-200">
-          {/* Заголовок для мобильного sheet */}
           {isMobileSheet && (
             <div className="flex items-center justify-between border-b border-border p-3">
               <div className="inline-flex items-center gap-1.5 text-sm font-bold text-foreground">
@@ -184,62 +182,26 @@ export function Filters({
             </div>
           )}
 
-          {/* Чипы + действия */}
           <div className="flex flex-wrap items-center gap-1.5 p-3">
-            <FilterChip
-              label={t("brand")}
-              active={state.brands.length > 0}
-              isOpen={open === "brand"}
-              onClick={() => setOpen(open === "brand" ? null : "brand")}
-            />
-            <FilterChip
-              label={t("body")}
-              active={state.bodyTypes.length > 0}
-              isOpen={open === "body"}
-              onClick={() => setOpen(open === "body" ? null : "body")}
-            />
-            <FilterChip
-              label={t("transmission")}
-              active={state.transmissions.length > 0}
-              isOpen={open === "transmission"}
-              onClick={() => setOpen(open === "transmission" ? null : "transmission")}
-            />
-            <FilterChip
-              label={t("year")}
-              active={state.yearMin > yearBounds.min || state.yearMax < yearBounds.max}
-              isOpen={open === "year"}
-              onClick={() => setOpen(open === "year" ? null : "year")}
-            />
-            <FilterChip
-              label={t("price")}
-              active={state.priceMin > priceBounds.min || state.priceMax < priceBounds.max}
-              isOpen={open === "price"}
-              onClick={() => setOpen(open === "price" ? null : "price")}
-            />
+            <FilterChip label={t("brand")} active={state.brands.length > 0} isOpen={open === "brand"} onClick={() => setOpen(open === "brand" ? null : "brand")} />
+            <FilterChip label={t("body")} active={state.bodyTypes.length > 0} isOpen={open === "body"} onClick={() => setOpen(open === "body" ? null : "body")} />
+            <FilterChip label={t("transmission")} active={state.transmissions.length > 0} isOpen={open === "transmission"} onClick={() => setOpen(open === "transmission" ? null : "transmission")} />
+            <FilterChip label={t("year")} active={state.yearMin > yearBounds.min || state.yearMax < yearBounds.max} isOpen={open === "year"} onClick={() => setOpen(open === "year" ? null : "year")} />
+            <FilterChip label={t("price")} active={state.priceMin > priceBounds.min || state.priceMax < priceBounds.max} isOpen={open === "price"} onClick={() => setOpen(open === "price" ? null : "price")} />
 
             <div className="ml-auto flex items-center gap-1.5">
-              <Button type="button" onClick={reset} variant="ghost" size="sm">
-                {t("reset")}
-              </Button>
-              <Button type="button" onClick={apply} variant="primary" size="sm">
-                {t("apply")}
-              </Button>
+              <Button type="button" onClick={reset} variant="ghost" size="sm">{t("reset")}</Button>
+              <Button type="button" onClick={apply} variant="primary" size="sm">{t("apply")}</Button>
             </div>
           </div>
 
-          {/* Раскрытая панель */}
           {open && (
             <div className="border-t border-border p-3">
               {open === "brand" && (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-2">
                   {brands.slice(0, BRAND_LIMIT).map((b) => (
                     <label key={b} className="flex items-center gap-2 cursor-pointer select-none">
-                      <Checkbox
-                        checked={state.brands.includes(b)}
-                        onCheckedChange={() =>
-                          setState((s) => ({ ...s, brands: toggle(s.brands, b) }))
-                        }
-                      />
+                      <Checkbox checked={state.brands.includes(b)} onCheckedChange={() => setState((s) => ({ ...s, brands: toggle(s.brands, b) }))} />
                       <span className="text-sm text-foreground/80 truncate">{b}</span>
                     </label>
                   ))}
@@ -250,12 +212,7 @@ export function Filters({
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-5 gap-y-2">
                   {bodyTypeOptions.map((bt) => (
                     <label key={bt} className="flex items-center gap-2 cursor-pointer select-none">
-                      <Checkbox
-                        checked={state.bodyTypes.includes(bt)}
-                        onCheckedChange={() =>
-                          setState((s) => ({ ...s, bodyTypes: toggle(s.bodyTypes, bt) }))
-                        }
-                      />
+                      <Checkbox checked={state.bodyTypes.includes(bt)} onCheckedChange={() => setState((s) => ({ ...s, bodyTypes: toggle(s.bodyTypes, bt) }))} />
                       <span className="text-sm text-foreground/80">{bodyTypeLabels[bt]}</span>
                     </label>
                   ))}
@@ -266,12 +223,7 @@ export function Filters({
                 <div className="grid grid-cols-2 gap-x-5 gap-y-2">
                   {transmissionOptions.map((tr) => (
                     <label key={tr} className="flex items-center gap-2 cursor-pointer select-none">
-                      <Checkbox
-                        checked={state.transmissions.includes(tr)}
-                        onCheckedChange={() =>
-                          setState((s) => ({ ...s, transmissions: toggle(s.transmissions, tr) }))
-                        }
-                      />
+                      <Checkbox checked={state.transmissions.includes(tr)} onCheckedChange={() => setState((s) => ({ ...s, transmissions: toggle(s.transmissions, tr) }))} />
                       <span className="text-sm text-foreground/80">{transmissionLabels[tr]}</span>
                     </label>
                   ))}
@@ -280,15 +232,7 @@ export function Filters({
 
               {open === "year" && (
                 <div className="px-1 py-1">
-                  <Slider
-                    min={yearBounds.min}
-                    max={yearBounds.max}
-                    step={1}
-                    value={[state.yearMin, state.yearMax]}
-                    onValueChange={([lo, hi]) =>
-                      setState((s) => ({ ...s, yearMin: lo, yearMax: hi }))
-                    }
-                  />
+                  <Slider min={yearBounds.min} max={yearBounds.max} step={1} value={[state.yearMin, state.yearMax]} onValueChange={([lo, hi]) => setState((s) => ({ ...s, yearMin: lo, yearMax: hi }))} />
                   <div className="mt-2 flex items-center justify-between text-xs font-semibold text-foreground/80">
                     <span>{state.yearMin}</span>
                     <span>{state.yearMax}</span>
@@ -298,22 +242,12 @@ export function Filters({
 
               {open === "price" && (
                 <div className="px-1 py-1">
-                  <Slider
-                    min={priceBounds.min}
-                    max={priceBounds.max}
-                    step={100}
-                    value={[state.priceMin, state.priceMax]}
-                    onValueChange={([lo, hi]) =>
-                      setState((s) => ({ ...s, priceMin: lo, priceMax: hi }))
-                    }
-                  />
+                  <Slider min={priceBounds.min} max={priceBounds.max} step={100} value={[state.priceMin, state.priceMax]} onValueChange={([lo, hi]) => setState((s) => ({ ...s, priceMin: lo, priceMax: hi }))} />
                   <div className="mt-2 flex items-center justify-between text-xs font-semibold text-foreground/80">
                     <span>{formatPrice(state.priceMin)}</span>
                     <span>{formatPrice(state.priceMax)}</span>
                   </div>
-                  <div className="mt-0.5 text-[11px] text-muted-foreground">
-                    за {tcar("perDay")}
-                  </div>
+                  <div className="mt-0.5 text-[11px] text-muted-foreground">за {tcar("perDay")}</div>
                 </div>
               )}
             </div>
@@ -349,9 +283,7 @@ function FilterChip({
       )}
     >
       {label}
-      <ChevronDown
-        className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180")}
-      />
+      <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180")} />
     </button>
   );
 }

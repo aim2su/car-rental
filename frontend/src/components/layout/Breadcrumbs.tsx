@@ -1,10 +1,11 @@
 import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import type { StaticPathname } from "@/i18n/routing";
 
 export function Breadcrumbs({
   items,
 }: {
-  items: { label: string; href?: string }[];
+  items: { label: string; href?: StaticPathname }[];
 }) {
   return (
     <nav className="flex items-center gap-1.5 text-xs text-ink-500 mb-6">

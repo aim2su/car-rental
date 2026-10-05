@@ -5,14 +5,18 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useTransition, useState, useRef, useEffect } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { StaticPathname } from "@/i18n/routing";
 
 export function LocaleSwitcher({ className }: { className?: string }) {
   const locale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
+  const rawPathname = usePathname();
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  // Приводим к статическому типу (без /cars/[id]) — этого достаточно для переключения локали
+  const pathname = rawPathname as StaticPathname;
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -37,7 +41,6 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 
   return (
     <div className={cn("relative", className)} ref={ref}>
-      {/* PC: две кнопки */}
       <div className="hidden sm:inline-flex items-center rounded-lg border border-ink-200 bg-white p-0.5 text-xs font-semibold">
         {(["ru", "en"] as const).map((l) => (
           <button
@@ -58,7 +61,6 @@ export function LocaleSwitcher({ className }: { className?: string }) {
         ))}
       </div>
 
-      {/* Мобилка: дропдаун */}
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -66,9 +68,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
         aria-label="Change language"
       >
         {locale.toUpperCase()}
-        <ChevronDown
-          className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")}
-        />
+        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")} />
       </button>
 
       {open && (
