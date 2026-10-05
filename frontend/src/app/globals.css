@@ -315,13 +315,10 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 31s linear infinite;
+  animation: marquee 27s linear infinite;
   will-change: transform;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
 /* ============================================================
    Тонкий скроллбар для сайдбара фильтров
    ============================================================ */

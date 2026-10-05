@@ -43,12 +43,55 @@
     "subtitle": "Wide choice of cars for rent. Reliable service and great rates for a comfortable trip.",
     "ctaPrimary": "Book now",
     "ctaSecondary": "Call us",
+    "insurance": "Full insurance included",
+    "airport": "Delivery to Khrabrovo airport",
+    "support": "Support",
+    "rentFrom": "Rent from",
+    "perDay": "per day",
+    "newCarsBadge": "New cars 2024",
+    "seeAll": "See all cars",
     "stats": {
       "cars": "cars",
       "clients": "happy clients",
       "years": "years on the market",
       "rating": "average rating"
     }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Three simple steps from choosing a car to getting the keys.",
+    "step1Title": "Choose a car",
+    "step1Text": "19+ cars in the catalog — filter by brand, body, price and class.",
+    "step2Title": "Leave a request",
+    "step2Text": "We will call you back within 15 minutes and confirm the booking. No deposit required.",
+    "step3Title": "Get the keys",
+    "step3Text": "Pick up at the office on Gagarina or delivery across Kaliningrad and the region."
+  },
+  "features": {
+    "title": "Why choose our car rental?",
+    "subtitle": "Wide choice of cars and the best service for your holiday in Kaliningrad.",
+    "wideChoice": "Wide choice of cars",
+    "wideChoiceText": "We offer a variety of car models for every taste and budget.",
+    "goodCondition": "Excellent car condition",
+    "goodConditionText": "All our cars undergo thorough inspection and maintenance before being handed to clients.",
+    "affordablePrices": "Affordable prices",
+    "affordablePricesText": "We offer great rates and special offers for long trips.",
+    "transparent": "Transparent rental terms",
+    "transparentText": "No hidden fees and no surprises — everything is agreed and written in advance.",
+    "location": "Convenient office location",
+    "locationText": "Our office is in the city center, making car rental and return as convenient as possible.",
+    "professional": "Professional service",
+    "professionalText": "Our specialists are always ready to help you choose a car and answer any questions."
+  },
+  "featured": {
+    "title": "Popular cars",
+    "subtitle": "The most requested models by our clients over the last month.",
+    "seeAll": "All cars"
+  },
+  "cta": {
+    "title": "Ready to book a car?",
+    "subtitle": "Call us or choose a car from the catalog. Delivery — within 30 minutes.",
+    "button": "Choose a car"
   },
   "search": {
     "title": "Find a car",
@@ -68,6 +111,8 @@
   },
   "filters": {
     "title": "Filters",
+    "show": "Show filters",
+    "hide": "Hide filters",
     "brand": "Brand",
     "class": "Class",
     "body": "Body",
@@ -105,7 +150,22 @@
     "book": "Book now",
     "details": "Details",
     "available": "Available",
-    "busy": "Busy"
+    "busy": "Busy",
+    "hit": "Hit",
+    "automatic": "Automatic",
+    "variator": "CVT",
+    "manual": "Manual",
+    "robot": "Robot",
+    "petrol": "Petrol",
+    "diesel": "Diesel",
+    "hybrid": "Hybrid",
+    "electric": "Electric",
+    "sedan": "Sedan",
+    "hatchback": "Hatchback",
+    "liftback": "Liftback",
+    "suv": "SUV",
+    "cabriolet": "Convertible",
+    "minivan": "Minivan"
   },
   "booking": {
     "pageTitle": "Book a car",
@@ -161,6 +221,9 @@
     "officePickup": "At the office — free",
     "officeAddress": "Kaliningrad, Generala Galitskogo st., 36a, 2nd floor",
     "nonWorking": "19:00 – 10:00 (Off hours)",
+    "daytime": "Daytime",
+    "nightTime": "Night",
+    "nightNote": "Surcharge for pick-up during off hours",
     "delivery": {
       "kaliningrad": "Kaliningrad",
       "svetlogorsk": "Svetlogorsk",
@@ -185,6 +248,7 @@
       "washing": "Full car wash",
       "washingNote": "if the car is returned dirty"
     },
+    "infoNote": "Pick-up and return: daily from 10:00 to 19:00. Off-hours delivery — by tariff. Car swap on request.",
     "items": {
       "airport": {
         "title": "Khrabrovo airport transfer",
@@ -215,6 +279,21 @@
   "terms": {
     "title": "Rental terms",
     "subtitle": "Transparent rules, no surprises",
+    "summaryTitle": "Summary",
+    "age": "Age",
+    "ageValue": "from 23 years",
+    "experience": "Driving experience",
+    "experienceValue": "from 3 years",
+    "rentalPeriod": "Rental period",
+    "rentalPeriodValue": "from 1 day",
+    "deposit": "Deposit",
+    "depositValue": "none",
+    "insurance": "Insurance",
+    "insuranceValue": "OSAGO included",
+    "mileage": "Mileage limit",
+    "mileageValue": "none",
+    "importantTitle": "Important",
+    "importantText": "The car is handed over upon presentation of a national passport and a driving license valid in the Russian Federation. Pick-up / return — daily from 10:00 to 19:00. Off-hours — by tariff.",
     "items": {
       "age": {
         "title": "Age and experience",
@@ -254,7 +333,13 @@
     "hoursValue": "Pick-up / return: 10:00 – 19:00. Off-hours delivery — by tariff.",
     "mapTitle": "We are on the map",
     "callUs": "Call us",
-    "writeUs": "Write us"
+    "writeUs": "Write us",
+    "messengersTitle": "We are on messengers and socials",
+    "messengersSubtitle": "Choose a convenient way to contact us — we reply within 15 minutes.",
+    "whatsappNote": "Message on WhatsApp",
+    "telegramNote": "Message on Telegram",
+    "avitoNote": "Our Avito profile",
+    "maxNote": "Message on Max"
   },
   "footer": {
     "about": "Car rental in Kaliningrad. Wide choice of cars, reliable service and great rates.",
@@ -262,7 +347,20 @@
     "contacts": "Contacts",
     "rights": "All rights reserved.",
     "privacy": "Privacy policy",
-    "offer": "Public offer"
+    "offer": "Public offer",
+    "callbackNote": "Leave a request — we will call back within 15 minutes."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page may have been deleted or you entered an incorrect address.",
+    "home": "Go home",
+    "cars": "View cars"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "text": "Try refreshing the page. If the error persists, please contact us.",
+    "retry": "Try again",
+    "home": "Go home"
   },
   "common": {
     "loading": "Loading...",
@@ -271,6 +369,49 @@
     "from": "from",
     "currency": "₽",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "menu": "Menu"
+  },
+  "carDetails": {
+    "backToCatalog": "Back to catalog",
+    "days": "Number of days",
+    "specsTitle": "Specifications",
+    "rulesTitle": "Rental terms",
+    "idealFor": "Great choice for:",
+    "ideal1": "Romantic trips and photo shoots",
+    "ideal2": "Nostalgic journeys",
+    "ideal3": "Retro car enthusiasts",
+    "brand": "Brand",
+    "model": "Model",
+    "yearOfMake": "Year",
+    "body": "Body",
+    "doors": "Doors",
+    "generation": "Generation",
+    "engine": "Engine",
+    "drive": "Drive",
+    "gearbox": "Transmission",
+    "modification": "Modification",
+    "steering": "Steering wheel",
+    "trim": "Trim",
+    "classLabel": "Car class",
+    "extra": "Extras",
+    "rentalType": "Rental type",
+    "rentalTypeSelf": "Self-drive",
+    "rentalTypeDriver": "With driver",
+    "minAge": "Minimum driver age",
+    "minExp": "Minimum driving experience",
+    "depositLabel": "Deposit",
+    "insuranceLabel": "Insurance",
+    "minDays": "Minimum rental days",
+    "mileageLimit": "Mileage limit",
+    "driveFront": "Front",
+    "driveRear": "Rear",
+    "driveAll": "All-wheel",
+    "steeringLeft": "Left",
+    "steeringRight": "Right",
+    "insuranceNote": "OSAGO included. No deposit. Minimum age — 23 years.",
+    "unavailable": "Unavailable",
+    "orCall": "Or call us",
+    "rentalInfo": "Pick-up and return: daily from 10:00 to 19:00. Off-hours delivery — by tariff. Car swap on request."
   }
 }

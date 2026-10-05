@@ -15,7 +15,6 @@ export function LocaleSwitcher({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Приводим к статическому типу (без /cars/[id]) — этого достаточно для переключения локали
   const pathname = rawPathname as StaticPathname;
 
   useEffect(() => {
@@ -49,7 +48,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
             onClick={() => switchTo(l)}
             disabled={isPending}
             className={cn(
-              "rounded-md px-2.5 py-1 transition-colors",
+              "rounded-md px-2.5 py-1 transition-colors cursor-pointer",
               locale === l
                 ? "bg-primary-700 text-white"
                 : "text-ink-600 hover:text-primary-800"
